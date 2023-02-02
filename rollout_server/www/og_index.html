@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <head>
+            <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+            <link rel="stylesheet" href="media/styles.css">
+            <title>Rollout!</title>
+            <meta charset="utf-8">
+            <script src="commands.js"></script>
+            <script>
+                function hardware_test()
+                {
+                    alert("Controleer het display op je Roro, \n\nstaat er de tekst \"Alles Ok!\"\ dan is alles OK!");
+                    write_to_display("Alles OK!")
+                }
+            </script>
+          </head>
+    </head>
+    <body>
+            <div class="sign">
+
+                <h1>Gefelicteerd! Je webserver staat klaar om webpaginas te hosten!</h1>
+                <p>vervang deze pagina later met je eigen webinterface</p>
+                <p>hoe je dat doet, lees je in reader "rollout reader 3,programeren"</p>
+                <l>
+                    <li>om te kijken of de camera het doet, klik <a href="/stream.mjpg">hier</a></li>
+                    <li>zie je een rood kruis? dan is er iets mis met de camera. Is dit het geval neem dan contact op met je coach</li>
+                    <li>om de laatste snapshot te bekijken, klik op <a href="/snapshot.jpg">mij</a></li>
+                    <li>druk op deze knop om te kijken of je je Roro kan aansturen</li>
+                    <button type="button" onclick="hardware_test()">Druk op mij!</button>
+                </l>    
+        </div>
+    </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>robo index pagina</title>
+    <style>
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 5px;
+        }
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+    <script src="commands.js"></script>
+    <script>
+        // 87 = w
+        add_to_keymap(65,forward,coast)
+
+        // 65 = a
+        add_to_keymap(87,rotate_counterclockwise,coast)
+
+        // 83 = s
+        add_to_keymap(40,backward,coast)
+
+        // 68 = d
+        add_to_keymap(83,rotate_clockwise,coast)
+
+        // 32 = space
+        add_to_keymap(32,shoot,null)
+    </script>
+    <script>
+        function take_picture()
+        {
+            delay_sec= 4;
+            pic_delay= setInterval(function()
+            {
+                document.getElementById("countdown").innerText= delay_sec;
+                delay_sec--;
+                if(delay_sec== 0)
+                {
+                    clearInterval(pic_delay)
+                    snapshot()
+                    document.getElementById("countdown").innerText= "done!";
+                }
+            },1000);
+        }
+    </script>
+</head>
+<body>
+<div class="row">
+    <div class="column">
+        <img src="/stream.mjpg"width="640"height="480"
+             style="width:100%"/>
+    </div>
+    <div class="column">
+        <img align="right" src="/snapshots/snapshot.jpg"id="snapshot_container"width="640" height="480"
+             style="width:100%"/>
+    </div>
+</div>
+
+<button type="button"onmousedown="forward()"onmouseup="coast()">voorwaarst!</button><br>
+<button id= "countdown"onclick="take_picture()">druk op mij om een foto te maken!</button>
+
+</body>
+</html>
